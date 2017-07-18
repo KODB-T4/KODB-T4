@@ -15,7 +15,7 @@ $(function(){
 	//var FC = $('#calendar').fullCalendar;
 	
 	$("#bt1").click(function(){
-		var str = '';
+		var str = 'Put the string into DB.';
 		var fc = $('#calendar').fullCalendar('clientEvents', function(ev){
 			str += "\n---------------------------";
 			for(var i in ev){
@@ -25,9 +25,6 @@ $(function(){
 		alert(str);
 	});
 	
-	$('#bt2').click(function(){
-		$('#calendar').fullCalendar('removeEvents', 1);	
-	});
 	
 	
 	$('#calendar').fullCalendar({
@@ -44,10 +41,7 @@ $(function(){
 		
 		//이벤트 클릭
 		eventClick: function(ev){
-			var str = "";
-			for (var i in ev)
-				str += "\n-" + i + ":" + ev[i];
-			alert(str);
+			$('#calendar').fullCalendar('removeEvents', ev.id);
 		},
 		
 		//범위를 드래그했을 경우
@@ -57,10 +51,10 @@ $(function(){
 			//해당 기간에 이벤트를 추가한다.
 			var event = [
 					{
-					id : eventId,
-					title : eventName,
-					start : st,
-					end : ed
+						id : eventId,
+						title : eventName,
+						start : st,
+						end : ed
 					}
 				];
 
@@ -91,7 +85,6 @@ $(function(){
 </head>
 <body>
 	<button id = "bt1">COMPLETE</button>
-	<button id = "bt2">DELETE</button>
 	<h1>FullCalendar practice</h1>
 	<div id = "calendar"></div>
 </body>
