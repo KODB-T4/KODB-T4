@@ -12,10 +12,9 @@
 
 <script>
 $(function(){
-	//var FC = $('#calendar').fullCalendar;
-	
+	tmpId = 1;
 	$("#bt1").click(function(){
-		var str = 'Put the string into DB.';
+		var str = 'Put the string into DB.\n**Id in this string is for client.';
 		var fc = $('#calendar').fullCalendar('clientEvents', function(ev){
 			str += "\n---------------------------";
 			for(var i in ev){
@@ -32,7 +31,6 @@ $(function(){
 			center:'agenda, month'
 		},
 		defaultView: 'agenda',
-		//visibleRange:{ start,end
 		selectable: true,
 		selectHelper: true,
 		dayCount: 7,
@@ -47,21 +45,16 @@ $(function(){
 		//범위를 드래그했을 경우
 		select: function(st,ed){
 			var eventName = prompt(st.format() + " ~ " + ed.format() + "\nEvent Title : ");
-			var eventId = prompt(st.format() + " ~ " + ed.format() + "\nEvent Id : ");
 			//해당 기간에 이벤트를 추가한다.
 			var event = [
 					{
-						id : eventId,
+						id : tmpId,
 						title : eventName,
 						start : st,
 						end : ed
 					}
 				];
-
-			//$('#calendar').fullCalendar(
-			//	'renderEvent',
-			//	event,
-			//	true);
+			tmpId++;
 			$('#calendar').fullCalendar(
 				'addEventSource',
 				event
@@ -79,7 +72,7 @@ $(function(){
 			alert(st + ev.start.format());
 		}
 	});
-	//$('#calendar').fullCalendar('changeView', 'agendaDay');
+
 })
 </script>
 </head>
