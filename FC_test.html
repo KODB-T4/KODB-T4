@@ -12,18 +12,17 @@
 
 <script>
 $(function(){
-	var FC = $('#calendar').fullCalendar;
-	glob = "";
+	//var FC = $('#calendar').fullCalendar;
+	
 	$("#bt1").click(function(){
-		var fc = $('#calendar').fullCalendar('getEventSources');
 		var str = '';
-		for(var i in fc){
-			str += "\n-" + i + fc[i];
-			for(var j in i){
-				str += "\n--" + j + i[j];
+		var fc = $('#calendar').fullCalendar('clientEvents', function(ev){
+			str += "\n---------------------------";
+			for(var i in ev){
+				str += "\n-" + i + " : " + ev[i];
 			}
-		}
-		alert(glob);
+		});	
+		alert(str);
 	});
 	
 	$('#bt2').click(function(){
@@ -64,10 +63,7 @@ $(function(){
 					end : ed
 					}
 				];
-			glob += "{\n  id : " + eventId + ",\n title : "
-					+ eventName + ",\n  start : "
-					+ st +",\n  end : "
-					+ ed + "\n}\n";
+
 			//$('#calendar').fullCalendar(
 			//	'renderEvent',
 			//	event,
