@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>JJA's</title>
+<title>Insert title here</title>
 
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css' />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,25 +12,71 @@
 
 <script>
 $(function(){
+	var FC = $('#calendar').fullCalendar;
+	glob = "";
+	$("#bt1").click(function(){
+		var fc = $('#calendar').fullCalendar('getEventSources');
+		var str = '';
+		for(var i in fc){
+			str += "\n-" + i + fc[i];
+			for(var j in i){
+				str += "\n--" + j + i[j];
+			}
+		}
+		alert(glob);
+	});
+	
+	$('#bt2').click(function(){
+		$('#calendar').fullCalendar('removeEvents', 1);	
+	});
+	
 	
 	$('#calendar').fullCalendar({
+		header : {
+			center:'agenda, month'
+		},
 		defaultView: 'agenda',
 		//visibleRange:{ start,end
 		selectable: true,
+		selectHelper: true,
 		dayCount: 7,
 		editable : true,
 		
+		
+		//이벤트 클릭
+		eventClick: function(ev){
+			var str = "";
+			for (var i in ev)
+				str += "\n-" + i + ":" + ev[i];
+			alert(str);
+		},
+		
 		//범위를 드래그했을 경우
-		select: function(st, ed){
-			alert(st.format() + " ~ " + ed.format());
+		select: function(st,ed){
+			var eventName = prompt(st.format() + " ~ " + ed.format() + "\nEvent Title : ");
+			var eventId = prompt(st.format() + " ~ " + ed.format() + "\nEvent Id : ");
 			//해당 기간에 이벤트를 추가한다.
-			$('#calendar').fullCalendar(
-				'renderEvent',
-				{
-					title : "event_Test",
+			var event = [
+					{
+					id : eventId,
+					title : eventName,
 					start : st,
 					end : ed
-				}, true);
+					}
+				];
+			glob += "{\n  id : " + eventId + ",\n title : "
+					+ eventName + ",\n  start : "
+					+ st +",\n  end : "
+					+ ed + "\n}\n";
+			//$('#calendar').fullCalendar(
+			//	'renderEvent',
+			//	event,
+			//	true);
+			$('#calendar').fullCalendar(
+				'addEventSource',
+				event
+			);
+			$('#calendar').fullCalendar('unselect');
 			},
 		
 		dayClick:function(d){
@@ -42,13 +88,15 @@ $(function(){
 		eventDragStop:function(ev){
 			alert(st + ev.start.format());
 		}
-	})
+	});
 	//$('#calendar').fullCalendar('changeView', 'agendaDay');
 })
 </script>
 </head>
 <body>
-	<h1>JJA : FullCalendar practice</h1>
+	<button id = "bt1">COMPLETE</button>
+	<button id = "bt2">DELETE</button>
+	<h1>FullCalendar practice</h1>
 	<div id = "calendar"></div>
 </body>
 </html>
