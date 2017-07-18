@@ -12,9 +12,6 @@
 
 <script>
 $(function(){
-	$("#bt1").click(function(){
-		alert("OK?");
-	})
 	
 	$('#calendar').fullCalendar({
 		defaultView: 'agenda',
@@ -24,14 +21,15 @@ $(function(){
 		editable : true,
 		
 		//범위를 드래그했을 경우
-		select: function(st,ed){
+		select: function(st, ed){
 			alert(st.format() + " ~ " + ed.format());
 			//해당 기간에 이벤트를 추가한다.
 			$('#calendar').fullCalendar(
 				'renderEvent',
-				{title : "event_Test",
-				start : st,
-				end:ed
+				{
+					title : "event_Test",
+					start : st,
+					end : ed
 				}, true);
 			},
 		
