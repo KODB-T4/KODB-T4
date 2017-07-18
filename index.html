@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width", initial-scale="1">
+  <title>코딩부스터</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/codingbooster.css">
+</head>
+<body>
+  <style type="text/css">
+    .jumbotron{
+      background-image: url('images/background.jpg');
+      background-size: cover;
+      text-shadow: black 0.2em 0.2em 0.2em;
+      color:white;
+    }
+  </style>
+  <!-- 어떠한 내용이 담기는 하나의 공간 -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapsed"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">이때어때</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">소개<span class="sr-only"></span></a></li>
+          <li><a href="#">찾아오는길</a></li>
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                aria-haspopup="true" aria-expanded="false">개발자<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">김동현</a></li>
+                  <li><a href="#">신지호</a></li>
+                  <li><a href="#">정주안</a></li>
+                  <li><a href="#">김선빈</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="내용을 입력하세요.">
+              </div>
+              <button type="submit" class="btn btn-default">검색</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                  aria-haspopup = "true" aria-expaned="false">접속하기<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                  </ul>
+              </li>
+            </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="text-center">이때 어때를 소개합니다.</h1>
+      <p class="text-center">이때 어때는 여러사용자의 약속을 매칭해 드립니다. 사용해 보세요</p>
+      <p class="text-center">
+        <a class="btn btn-primary btn-lg" href = "https://johnnyapu15.github.io/FC_test"
+         role="button">
+          시작 하기
+        </a>
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>이때어때의 특징</h4>
+        <p>이때어때는 다른 사이트와 차원이 다른 매칭을 보여드립니다.</p>
+        <p><a class="btn btn-default" data-target="#modal" data-toggle="modal" >자세히 알아보기</a></p>
+      </div>
+      <div class="col-md-4">
+        <h4>이때어때의 특징 둘</h4>
+        <p>이때어때는 다른 사이트와 차원이 다른 매칭을 보여드립니다.</p>
+        <p><a class="btn btn-default" href="#">자세히 알아보기</a></p>
+      </div>
+      <div class="col-md-4">
+        <h4>이때어때의 사진</h4>
+        <p>이때어때는 다른 사이트와 차원이 다른 매칭을 보여드립니다.</p>
+        <p><a class="btn btn-default" href="#">자세히 알아보기</a></p>
+      </div>
+    </div>
+  </div>
+  <footer style="background-color:#000000; color: #ffffff">
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-sm-2" style="text-align : center;"><h5>Copyright &copy; 2017</h5><h5>김선빈(sunbeen kim)</h5></div>
+        <div class="col-sm-4"><h4>대표자 소개</h4><p>저는 이때어때의 대표 김선빈입니다.</p></div>
+        <div class="col-sm-2"><h4 style="text-align : center;">네비게이션</h4>
+          <div class="list-group">
+            <a href="#" class="list-group-item">소개</a>
+            <a href="#" class="list-group-item">이때</a>
+            <a href="#" class="list-group-item">어때</a>
+          </div>
+
+        </div>
+        <div class="col-sm-2"><h4 style="text-align : center;">SNS</h4>
+          <div class="list-group">
+            <a href="#" class="list-group-item">페이스북</a>
+            <a href="#" class="list-group-item">유튜브</a>
+            <a href="#" class="list-group-item">네이버 TV</a>
+          </div>
+        </div>
+        <div class="col-sm-2"><h4 style="text-align:center;">
+          <span class="glyphicon glyphicon-ok">&nbsp;by SB</span></h4>
+        </div>
+    </div>
+  </footer>
+  <div class="row">
+    <div class="modal" id="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            이때어때의 특징
+            <button class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body" style="text-align : center;">
+            저희 서비스의 특징은 바로 매칭해준다는 점입니다.<br>
+            특히 다양한 무료 서비스가 있습니다.<br><br>
+            <img src="images/meet.jpg" id="imagepreview" style="width:256px; height:200px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.js">
+
+  </script>
+</body>
+</html>
